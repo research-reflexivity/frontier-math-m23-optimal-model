@@ -1,0 +1,27 @@
+{
+  "status": "PASS_EXACT_UPSTREAM_NORMALIZATION",
+  "checked_on": "2026-08-12",
+  "comparison_system": "PARI/GP 2.17.4",
+  "upstream": {
+    "repository": "https://github.com/shaowuz/m23isgalois",
+    "commit": "f9c59eba2017090c5ea20f6f4e4a412055443463",
+    "path": "polynomial_F.gp",
+    "sha256": "7180242f5d25c2fc7433238bbd29bcaa0e109b5b5555a4c485f159b0aa5b596b"
+  },
+  "normalized_table": {
+    "path": "data/Fint_coefficients_Z.json",
+    "sha256": "27dd1fd0de4f1c350f5a07ead6d5b747d7a8f34e4146ec42fa953f1536a65102",
+    "outer_index": "V degree 0 through 23",
+    "inner_index": "T degree 0 through 8"
+  },
+  "generated_gp": {
+    "path": "data/Fint_coefficients_Z.gp",
+    "sha256": "de667c8a260544493d993d83443095b8a27dda1d170ab521bcd3373d1a403d39",
+    "renderer": "scripts/render_fint_gp.py"
+  },
+  "exact_checks": {
+    "Fint_equal": true,
+    "F_equal_after_dividing_by_T_squared_plus_23_to_the_fourth": true
+  },
+  "note": "The copied upstream GP source is absent from the current release; this record preserves the exact origin and one-time migration comparison."
+}

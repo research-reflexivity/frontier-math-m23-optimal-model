@@ -1,0 +1,21 @@
+{
+  "status": "PASS_OPTIMAL_23_4_EXACT_CERTIFICATE",
+  "primitive_Z_polynomial": true,
+  "degree_W": 23,
+  "degree_T": 4,
+  "exact_identity_in_QT_mod_F": true,
+  "reduction_prime": 31,
+  "irreducible_mod_31": true,
+  "divides_defining_resultant_mod_31": true,
+  "consequence": "F23_4 is irreducible over Q and Q(T,W)=Q(T,V) under W=J0/J1; hence it defines the same degree-23 regular M23 cover.",
+  "exact_log": [
+    "PASS_EXACT_FUNCTION_FIELD_IDENTITY"
+  ],
+  "finite_log": [
+    "PASS_F4_MOD31_CERTIFICATE",
+    "degree_T=4",
+    "degree_W=23",
+    "irreducible=1",
+    "divides_resultant=1"
+  ]
+}

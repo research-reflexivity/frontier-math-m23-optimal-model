@@ -1,0 +1,12 @@
+Licensing in this directory
+
+Verification programs (`*.py`, `*.gp`, `*.sing`, and `*.m`) are licensed under
+the Apache License 2.0. See ../LICENSE.
+
+To the extent Reflexivity, Inc. holds copyright or related rights in the
+generated summaries, environment record, and other computational outputs
+in this directory, those rights are waived under CC0 1.0 Universal. See
+../LICENSE-CC0-1.0.
+
+These terms do not relicense third-party materials or claim ownership of
+uncopyrightable mathematical facts. See ../THIRD_PARTY_NOTICES.md.

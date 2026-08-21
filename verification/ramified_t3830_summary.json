@@ -1,0 +1,22 @@
+{
+  "status": "PASS_RAMIFIED_T3830_COMPANION_CERTIFICATE",
+  "specialization": 3830,
+  "primitive_content": 1,
+  "crt_conditions": [
+    "t=2 mod 319",
+    "t=5 mod 25"
+  ],
+  "galois_group": "M23",
+  "irreducible_mod_29": true,
+  "factor_degrees_mod_11": [
+    2,
+    7,
+    14
+  ],
+  "pari_pinned_branch_fiber_mod_5_repeated_degree": 8,
+  "pari_pinned_branch_fiber_mod_5_repeated_part_squarefree": true,
+  "pari_pinned_branch_fiber_mod_5_transverse": true,
+  "pari_field_discriminant_valuation_at_5": 8,
+  "base_t2_field_discriminant_valuation_at_5": 0,
+  "conclusion": "the t=3830 and t=2 M23 splitting fields are distinct"
+}

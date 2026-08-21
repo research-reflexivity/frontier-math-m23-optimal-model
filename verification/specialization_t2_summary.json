@@ -1,0 +1,21 @@
+{
+  "status": "PASS_SPECIALIZATION_T2_M23_CERTIFICATE",
+  "specialization": "T=2",
+  "degree": 23,
+  "primitive": true,
+  "exact_family_specialization": true,
+  "irreducible_mod_29": true,
+  "frobenius_cycle_degrees_mod_29": [
+    23
+  ],
+  "squarefree_mod_11": true,
+  "frobenius_cycle_degrees_mod_11": [
+    2,
+    7,
+    14
+  ],
+  "frobenius_order_mod_11": 14,
+  "ambient_specialization_group": "subgroup of M23",
+  "maximal_subgroup_exclusion": "only 23:11 contains order 23, but it has odd order",
+  "galois_group_over_Q": "M23"
+}
