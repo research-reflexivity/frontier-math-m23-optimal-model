@@ -73,7 +73,8 @@ def render() -> str:
 //
 // The certificate checks:
 //   (1) P(T,W) is primitive of bidegree (23,4), retaining that bidegree mod 31;
-//   (2) J1^23 P(T,J0/J1) is zero in Q(T)[V]/(F);
+//   (2) J1^23 P(T,J0/J1) is zero modulo the monic normalization Fhat
+//       of HJLPPZ's integral polynomial F;
 //   (3) P mod 31 is irreducible in F_31[T,W].
 
 DO_EXACT_IDENTITY := true;
@@ -82,7 +83,7 @@ DO_FINITE_IRREDUCIBILITY := true;
 '''
     tables = "\n".join(
         [
-            magma_matrix("FINT_V_THEN_T", source),
+            magma_matrix("F_V_THEN_T", source),
             magma_matrix("P_T_THEN_W", equation),
             magma_matrix("J0_V_THEN_T", pencil[0]),
             magma_matrix("J1_V_THEN_T", pencil[1]),
@@ -112,11 +113,11 @@ if DO_EXACT_IDENTITY then
         return value;
     end function;
 
-    Fint := RV![ PolynomialInT(row) : row in FINT_V_THEN_T ];
+    F := RV![ PolynomialInT(row) : row in F_V_THEN_T ];
     D := T^2 + 23;
-    F := RV![ Coefficient(Fint, i) / D^4 : i in [0..Degree(Fint)] ];
-    assert Degree(F) eq 23;
-    assert IsMonic(F);
+    Fhat := RV![ Coefficient(F, i) / D^4 : i in [0..Degree(F)] ];
+    assert Degree(Fhat) eq 23;
+    assert IsMonic(Fhat);
 
     J0 := RV![ PolynomialInT(row) : row in J0_V_THEN_T ];
     J1 := RV![ PolynomialInT(row) : row in J1_V_THEN_T ];
@@ -135,9 +136,9 @@ if DO_EXACT_IDENTITY then
     numerator := RV!p_coefficients[24];
     J1power := J1;
     for j := 22 to 0 by -1 do
-        numerator := (numerator * J0 + p_coefficients[j + 1] * J1power) mod F;
+        numerator := (numerator * J0 + p_coefficients[j + 1] * J1power) mod Fhat;
         if j gt 0 then
-            J1power := (J1power * J1) mod F;
+            J1power := (J1power * J1) mod Fhat;
         end if;
     end for;
     assert numerator eq 0;

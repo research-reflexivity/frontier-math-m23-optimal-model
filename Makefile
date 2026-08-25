@@ -3,8 +3,9 @@ PYTHON ?= python3
 SAGE ?= sage
 MAGMA ?= magma
 SINGULAR ?= Singular
+LAKE ?= lake
 
-.PHONY: verify verify-boundary verify-specialization verify-progression verify-progression-85 verify-ramification verify-model verify-model-singular verify-model-sage verify-model-magma verify-geometry verify-python-arithmetic verify-data verify-all
+.PHONY: verify verify-boundary verify-specialization verify-progression verify-progression-85 verify-ramification verify-model verify-model-singular verify-model-sage verify-model-magma verify-lean verify-geometry verify-python-arithmetic verify-data verify-all
 
 verify: verify-boundary verify-specialization verify-progression verify-progression-85 verify-ramification
 
@@ -35,6 +36,10 @@ verify-model-magma:
 	$(PYTHON) scripts/emit_magma_certificate.py --check
 	$(MAGMA) -b verification/verify_optimal_23_4.m
 
+verify-lean:
+	$(PYTHON) scripts/emit_lean_certificate_data.py --check
+	cd verification/lean && $(LAKE) build
+
 verify-geometry:
 	cd verification && $(SINGULAR) --cpus=1 --threads=1 -q verify_nodes_mod31.sing
 	$(PYTHON) verification/verify_adjoint_mod31.py
@@ -47,4 +52,4 @@ verify-python-arithmetic:
 verify-data:
 	shasum -a 256 -c CHECKSUMS.sha256
 
-verify-all: verify verify-model verify-geometry verify-python-arithmetic verify-data
+verify-all: verify verify-model verify-lean verify-geometry verify-python-arithmetic verify-data

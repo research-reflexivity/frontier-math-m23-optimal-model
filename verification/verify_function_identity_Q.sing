@@ -1,10 +1,10 @@
-// Exact verification in Q(T)[V] that F23_4(T,J0/J1)=0 on Fint(T,V)=0.
+// Exact verification in Q(T)[V] that F23_4(T,J0/J1)=0 on F(T,V)=0.
 option(redSB);
 ring r = (0,T),(V),lp;
 < "../data/FQ.inc";
 < "../data/optimal_degree4_pencil.inc";
 < "../data/optimal_23_4_coeffs_T.inc";
-ideal G = std(f);
+ideal G = std(F);
 
 // Homogeneous Horner evaluation:
 // J1^23 * F23_4(T,J0/J1) = sum_j a_j(T) J0^j J1^(23-j).

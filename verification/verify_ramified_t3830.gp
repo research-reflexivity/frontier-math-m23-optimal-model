@@ -40,8 +40,8 @@ verify_ramified_specialization() =
         "residual discriminant factor meets the branch divisor");
 
   \\ Eight geometrically distinct transverse double roots at T=0 mod 5.
-  f0 = Mod(1,5)*subst(F,T,0);
-  ft0 = Mod(1,5)*subst(deriv(F,T),T,0);
+  f0 = Mod(1,5)*subst(Fhat,T,0);
+  ft0 = Mod(1,5)*subst(deriv(Fhat,T),T,0);
   repeated = gcd(f0,deriv(f0,V));
   check(poldegree(repeated,V) == 8, "wrong repeated degree at T=0 mod 5");
   check(poldegree(gcd(repeated,deriv(repeated,V)),V) == 0,

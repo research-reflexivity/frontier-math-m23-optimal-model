@@ -1,6 +1,6 @@
 Licensing in this directory
 
-Verification programs (`*.py`, `*.gp`, `*.sing`, and `*.m`) are licensed under
+Verification programs (`*.py`, `*.gp`, `*.sing`, `*.m`, and `*.lean`) are licensed under
 the Apache License 2.0. See ../LICENSE.
 
 To the extent Reflexivity, Inc. holds copyright or related rights in the

@@ -19,7 +19,7 @@ verify_progression() =
   my(base, primitive, shifted, f5, f17, q17, expected5, expected17,
      maximal_orders, primes = [5,17]);
 
-  base = subst(Fint, T, 83);
+  base = subst(F, T, 83);
   check(poldegree(base, V) == 23, "base specialization has wrong degree");
   primitive = base / content(base);
   check(content(primitive) == 1, "primitive normalization failed");
@@ -42,7 +42,7 @@ verify_progression() =
 
   for(i = 1, #primes,
     my(p = primes[i]);
-    shifted = subst(Fint, T, 83 + 85*n);
+    shifted = subst(F, T, 83 + 85*n);
     check(Mod(1,p)*shifted == Mod(1,p)*base,
           Str("universal progression congruence failed modulo ", p));
     check(poldegree(Mod(1,p)*base, V) == 23,
@@ -62,7 +62,7 @@ verify_progression() =
   check(319*85 == 27115, "common-subprogression modulus is wrong");
 
   print("PASS_HJLPPZ_PROGRESSION_85_CERTIFICATE");
-  print("Fint(83+85*n,V) is squarefree modulo 5 and 17");
+  print("F(83+85*n,V) is squarefree modulo 5 and 17");
   print("factor_degrees_mod_5=[1,2,4,8,8] cycle_order=8");
   print("factor_degrees_mod_17=[23] cycle_order=23");
   print("generic_M23_plus_maximal_subgroup_exclusion_implies_specialized_M23");

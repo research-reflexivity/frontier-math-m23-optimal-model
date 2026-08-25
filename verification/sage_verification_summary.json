@@ -5,7 +5,7 @@
   "degree_T": 4,
   "degree_W": 23,
   "primitive_over_Z": true,
-  "exact_identity_in_QT_mod_F": true,
+  "exact_identity_in_QT_mod_Fhat": true,
   "irreducible_mod_31": true,
   "same_function_field_degree_argument": true
 }

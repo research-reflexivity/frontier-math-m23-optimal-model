@@ -21,7 +21,7 @@ def load_json(name):
 def main():
     equation = load_json("optimal_23_4_Z.json")
     pencil = load_json("optimal_degree4_pencil.json")
-    fint_table = load_json("Fint_coefficients_Z.json")
+    f_table = load_json("Fint_coefficients_Z.json")
 
     QT = PolynomialRing(QQ, "T")
     T = QT.gen()
@@ -30,10 +30,14 @@ def main():
     V = RV.gen()
 
     F = RV.zero()
-    for v_degree, row in enumerate(fint_table):
+    for v_degree, row in enumerate(f_table):
         coefficient = sum(QQ(value) * T**t_degree for t_degree, value in enumerate(row))
         F += KT(coefficient) * V**v_degree
     assert F.degree() == 23
+    D = T**2 + 23
+    Fhat = F / D**4
+    assert Fhat.degree() == 23
+    assert Fhat.is_monic()
 
     exact_pencil = []
     for encoded in pencil["expanded_coefficients_V_then_T"]:
@@ -49,13 +53,13 @@ def main():
          for w_degree in range(24)]
 
     # Homogeneous Horner evaluation of J1^23 P(T,J0/J1), reducing after
-    # every multiplication in K(T)[V]/(F).
+    # every multiplication in K(T)[V]/(Fhat).
     numerator = RV(a[23])
     j1_power = J1
     for w_degree in range(22, -1, -1):
-        numerator = (numerator * J0 + a[w_degree] * j1_power) % F
+        numerator = (numerator * J0 + a[w_degree] * j1_power) % Fhat
         if w_degree > 0:
-            j1_power = (j1_power * J1) % F
+            j1_power = (j1_power * J1) % Fhat
     assert numerator == 0
 
     # An independent finite-field construction and factorization.
@@ -81,7 +85,7 @@ def main():
         "degree_T": 4,
         "degree_W": 23,
         "primitive_over_Z": True,
-        "exact_identity_in_QT_mod_F": True,
+        "exact_identity_in_QT_mod_Fhat": True,
         "irreducible_mod_31": True,
         "same_function_field_degree_argument": True,
     }

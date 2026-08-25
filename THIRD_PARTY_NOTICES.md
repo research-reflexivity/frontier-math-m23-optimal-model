@@ -25,6 +25,10 @@ of Sydney.
 - PARI/GP licensing: https://pari.math.u-bordeaux.fr/faq.html#license
 - Magma: https://magma.maths.usyd.edu.au/magma/
 - Magma ordering and distribution: https://magma.maths.usyd.edu.au/magma/ordering/
+- Lean: https://lean-lang.org/
+- Lean licensing: https://github.com/leanprover/lean4/blob/master/LICENSE
+- mathlib: https://github.com/leanprover-community/mathlib4
+- mathlib licensing: https://github.com/leanprover-community/mathlib4/blob/master/LICENSE
 
 SageMath and its components remain under the licenses identified by the
 SageMath project. Singular and PARI/GP are distributed under the GNU General
@@ -32,6 +36,10 @@ Public License; consult the cited release materials for the controlling
 terms. The dependency-free companion verifiers and certificate generators use
 Python 3.14.6 and its standard library; Python is distributed under the Python
 Software Foundation License.
+
+The formal irreducibility certificate invokes Lean and mathlib as external
+build dependencies. Exact revisions are pinned in `verification/lean`; neither
+dependency is bundled in the tracked repository.
 
 - Python: https://www.python.org/psf/license/
 
@@ -55,7 +63,9 @@ implementation, obtain permission or an explicit license from its
 copyright holders.
 
 The exact integral coefficient table in `data/Fint_coefficients_Z.gp`
-was generated from the published mathematical model. The CC0 dedication
-covers only rights held by Reflexivity and does not assert ownership of
-the underlying published equation or of uncopyrightable mathematical
-facts.
+represents the polynomial denoted `F` in the published paper and `Fint` in the
+upstream GP program. The generated file uses `F` for this integral polynomial
+and `Fhat` for its monic normalization, matching the accompanying paper. The
+CC0 dedication covers only rights held by
+Reflexivity and does not assert ownership of the underlying published equation
+or of uncopyrightable mathematical facts.
